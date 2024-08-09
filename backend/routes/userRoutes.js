@@ -65,3 +65,6 @@ router.post("/login", async (req, res) => {
     }
 
 });
+
+
+// validate token api
