@@ -107,4 +107,36 @@ router.get("/profile", protect, async (req, res) => {
     }
   });
 
+
+  // Update user profile
+router.put("/profile", protect, async (req, res) => {
+    const { name, email, password } = req.body;
+  
+    try {
+      const user = await User.findById(req.user.id);
+  
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+  
+      user.name = name || user.name;
+      user.email = email || user.email;
+  
+      if (password) {
+        user.password = password;
+      }
+  
+      const updatedUser = await user.save();
+  
+      res.json({
+        id: updatedUser._id,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        isHost: updatedUser.isHost,
+      });
+    } catch (error) {
+      res.status(500).json({ message: "Server error" });
+    }
+  });
+
 export default router;
