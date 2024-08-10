@@ -6,6 +6,9 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/userRoutes.js";
 import hostRoutes from "./routes/hostRoutes.js";
 
+const categoryRouter = require('./routes/category');
+
+app.use('/categories', categoryRouter);
 
 dotenv.config();
 
