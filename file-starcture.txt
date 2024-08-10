@@ -1,0 +1,21 @@
+/backend
+├── /config 
+│   └── db.js          # MongoDB connection setup
+├── /controllers
+│   ├── authController.js  # User authentication logic
+│   ├── listingController.js # Handle property listings and filtering
+│   ├── categoryController.js # Handle category management
+│   └── userController.js  # User account management
+├── /models
+│   ├── User.js        # User schema
+│   ├── Listing.js     # Listing schema
+│   └── Category.js    # Category schema
+├── /routes
+│   ├── auth.js        # Authentication routes
+│   ├── listings.js    # Property listing routes
+│   ├── categories.js  # Category routes
+│   └── users.js       # User routes
+├── /middlewares
+│   └── authMiddleware.js # Middleware for protecting routes
+└── server.js          # Entry point
+
