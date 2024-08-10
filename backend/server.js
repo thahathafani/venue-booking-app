@@ -14,6 +14,10 @@ connectDB();
 
 app.use(express.json());
 
+app.get('/home', (req, res) => {
+    res.status(201).send("Hello, world!");
+});
+
 app.use("/api/users", userRoutes);
 app.use("/api/hosts", hostRoutes);
 

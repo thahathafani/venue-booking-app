@@ -1,5 +1,5 @@
 import express from "express";
-import protect from "../controllers/authMiddleware";
+import protect from "../controllers/authMiddleware.js";
 import Listing from "../models/Listing"; // need to work on the listings api 
 
 const router = express.Router();
@@ -81,4 +81,4 @@ router.delete("/listings/:id", protect, async (req, res) => {
         }
       });
       
-      export default router;
+export default router;
