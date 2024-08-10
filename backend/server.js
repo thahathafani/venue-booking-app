@@ -10,6 +10,7 @@ const categoryRouter = require('./routes/category');
 
 app.use('/categories', categoryRouter);
 
+
 dotenv.config();
 
 const app = express();
