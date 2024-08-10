@@ -60,4 +60,25 @@ router.put("/listings/:id", protect, async (req, res) => {
     }
 });
 
-// Delete a listing
+// Delete a listing api
+
+router.delete("/listings/:id", protect, async (req, res) => {
+    try{
+        const listing = await Listing.findById(req.params.id);
+
+        if (!listing) {
+            return res.status(404).json({ message: "Listing not found" });
+        }
+
+        if (listing.host.toString() !== req.user.id) {
+            return res.status(401).json({ message: "User not authorized" });
+          }
+      
+          await listing.remove();
+          res.json({ message: "Listing removed" });
+        } catch (error) {
+          res.status(500).json({ message: "Server error" });
+        }
+      });
+      
+      export default router;
