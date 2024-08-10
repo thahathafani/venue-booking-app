@@ -60,3 +60,4 @@ router.put("/listings/:id", protect, async (req, res) => {
     }
 });
 
+// Delete a listing
