@@ -27,3 +27,5 @@ router.post("/listings", protect, async (req, res) => {
     res.status(500).json({ message: "Server error" });
  }
 });
+
+// update listing api
